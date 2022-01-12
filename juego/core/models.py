@@ -1,5 +1,7 @@
 from django.db import models
 from django.db.models.fields.related import ForeignKey
+from django.contrib.auth.models import User
+from django.db.models.deletion import CASCADE
 
 # Create your models here.
 
@@ -7,9 +9,18 @@ from django.db.models.fields.related import ForeignKey
 class Personaje(models.Model):
     '''Carreras de cada sede'''
     nombre = models.CharField(max_length=300)
+    user = models.ForeignKey(User, related_name='personajes_users', on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.nombre}"
+
+
+class ExtendUser(models.Model):
+    r = models.OneToOneField(User, on_delete=models.CASCADE)
+    pj_seleccionado = models.ForeignKey(Personaje, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.r.username
 
 
 class PersonajeDetalle(models.Model):
