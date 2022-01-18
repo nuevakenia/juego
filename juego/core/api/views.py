@@ -1,11 +1,11 @@
 from django.contrib.auth import get_user_model
-from juego.core.models import ExtendUser
+from core.models import ExtendUser
 
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateModelMixin
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 from core.models import Personaje
-from users.models import User
+#from users.models import User
 from .serializers import UserSerializer, PersonajeSerializer
 
 

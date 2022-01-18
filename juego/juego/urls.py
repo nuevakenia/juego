@@ -18,6 +18,7 @@ from django.urls import include, path
 from django.urls.conf import re_path
 from django.views.generic import TemplateView
 
+app_name = 'juego'
 
 urlpatterns = [
     # User management
@@ -26,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('test', TemplateView.as_view()),
     path('api-auth/', include('rest_framework.urls')),
-    #path("api/", include("study.api_router")),
+    path("api/", include("juego.api_router")),
     #re_path(r'^api/', include("study.api_router")),
 ]
 

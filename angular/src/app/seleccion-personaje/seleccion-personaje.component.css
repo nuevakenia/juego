@@ -1,0 +1,41 @@
+* {
+    font-family: courier;
+
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.solid {
+    border-style: solid;
+}
+
+.animate {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.m-2 {
+    margin: 50px !important;
+}
+
+img {
+    width: 100%;
+    margin: auto;
+}
+
+.showroom{
+    width: 100%;
+    max-width: 100px;
+}
+

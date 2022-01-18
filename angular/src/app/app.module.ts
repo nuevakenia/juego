@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { SeleccionPersonajeComponent } from './seleccion-personaje/seleccion-personaje.component';
 import { BarraComponent } from './barra/barra.component';
 import { BaseComponent } from './base/base.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
+
+
 
 @NgModule({
   declarations: [
@@ -16,7 +21,10 @@ import { BaseComponent } from './base/base.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
