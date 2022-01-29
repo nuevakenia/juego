@@ -18,6 +18,8 @@ from django.urls import include, path
 from django.urls.conf import re_path
 from django.views.generic import TemplateView
 
+from core.views import FrontendRenderView
+
 app_name = 'juego'
 
 urlpatterns = [
@@ -32,5 +34,5 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    #re_path(r'(?P<path>.*)', frontendRender_view, name='home')
+    #re_path(r'(?P<path>.*)', FrontendRenderView.as_view(), name='front')
 ]

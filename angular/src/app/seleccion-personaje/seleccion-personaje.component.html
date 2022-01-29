@@ -20,10 +20,12 @@
 </script>
 
 <body>
-    <div class="body  solid">
-        <div>
-            <h1 class="animate">Seleccionar personaje</h1>
-        </div>
+    <div class="bloque">
+        <h1 class="animate">Seleccionar personaje</h1>
+    </div>
+    <div class="body solid">
+
+        <br>
         <!-- Cards with media area -->
         <div *ngFor="let personaje of personajes">
             <mat-card class="personaje-card">
@@ -37,7 +39,14 @@
                 </mat-card-content>
             </mat-card>
         </div>
+    </div>
 
+    <div class="selector solid" [@selectorPj]="isSelected ? 'activo' : 'inactivo'">
+
+        <button mat-raised-button color="primary" class="botones" (click)="toggleCentro()"><b>Seleccionar</b></button>
+        <div [@selectorPj]="isSelected ? 'activo' : 'inactivo'" class="open-close-container">
+
+        </div>
     </div>
 
 

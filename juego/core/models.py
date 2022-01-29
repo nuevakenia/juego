@@ -6,10 +6,22 @@ from django.db.models.deletion import CASCADE
 # Create your models here.
 
 
+class PersonajeDetalle(models.Model):
+
+    nivel = models.IntegerField(default=1)
+    exp = models.IntegerField(default=1)
+    vida = models.IntegerField(default=1)
+    energia = models.IntegerField(default=1)
+    fuerza = models.IntegerField(default=1)
+    destreza = models.IntegerField(default=1)
+    inteligencia = models.IntegerField(default=1)
+
+
 class Personaje(models.Model):
-    '''Carreras de cada sede'''
+
     nombre = models.CharField(max_length=300)
     user = models.ForeignKey(User, related_name='personajes_users', on_delete=models.CASCADE)
+    detalle = models.OneToOneField(PersonajeDetalle, related_name='personajes_detalles', on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.nombre}"
@@ -21,17 +33,6 @@ class ExtendUser(models.Model):
 
     def __str__(self):
         return self.r.username
-
-
-class PersonajeDetalle(models.Model):
-    personaje = models.ForeignKey(Personaje, related_name='personaje_detalles', on_delete=models.CASCADE)
-    nivel = models.IntegerField(default=1)
-    exp = models.IntegerField(default=1)
-    vida = models.IntegerField(default=1)
-    energia = models.IntegerField(default=1)
-    fuerza = models.IntegerField(default=1)
-    destreza = models.IntegerField(default=1)
-    inteligencia = models.IntegerField(default=1)
 
 
 class Sala(models.Model):
