@@ -42,6 +42,20 @@ class Login(ObtainAuthToken):
             return Response({'error': 'Nombre de usuario o contraseña incorrectos'}, status=status.HTTP_401_UNAUTHORIZED)
         return Response({'mensaje': 'Hola desde response'}, status=status.HTTP_200_OK)
 
+class Test1View(TemplateView):
+
+    template_name = "test1.html"
+
+    def get(self, request):
+
+        return render(request, "test1.html")
+
+    def post(self, request):
+        #usuaios = User.objects.filter(groups__name='')
+        return render(request, "home.html")
+
+
+test1_view = Test1View.as_view()
 
 class Test1View(TemplateView):
 

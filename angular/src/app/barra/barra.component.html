@@ -1,3 +1,36 @@
-<body>
 
-</body>
+  <p>
+    <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <h1 class="example-app-name">Juego</h1>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    
+        <mat-icon aria-hidden="false" aria-label="Example home icon">
+            emoji_events
+        </mat-icon>
+      </button>
+
+     
+
+        
+      <mat-icon>
+        videogame_asset
+    </mat-icon>
+    
+      
+    </mat-toolbar>
+    
+<mat-sidenav-container >
+<mat-sidenav-content>
+    <mat-sidenav #snav><mat-icon>
+        videogame_asset
+    </mat-icon></mat-sidenav>
+</mat-sidenav-content>
+</mat-sidenav-container>
+
+  </p>
+  

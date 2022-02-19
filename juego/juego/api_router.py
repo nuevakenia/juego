@@ -33,6 +33,5 @@ router.register("personajes", SeleccionPersonajeViewSet, basename='personajes')
 urlpatterns = [
     path('', include(router.urls)),
     path('personajes/crear', PersonajeCreateAPIView.as_view(), name="personajes_crear"),
-    path('personajes/detalle', PersonajeDetailAPIView.as_view(), name="personajes_detalle"),
-
+    path('personajes/detalle', PersonajeDetailAPIView.as_view(), name="personajes_detalle")
 ]

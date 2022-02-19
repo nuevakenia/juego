@@ -7,6 +7,7 @@ from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateMode
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 from rest_framework import generics, status
+from rest_framework.generics import ListAPIView
 from django.views.generic import CreateView, DetailView, UpdateView
 from core.models import Personaje
 # from users.models import User
@@ -22,9 +23,9 @@ class SeleccionPersonajeViewSet(ListModelMixin, GenericViewSet):
     serializer_class = PersonajeSerializer
 
     def get_queryset(self):
-        user = self.request.user
-        queryset = Personaje.objects.select_related('detalle').filter(user=user.id)
-        print("User: ", user.id)
+        #user = self.request.user
+        queryset = Personaje.objects.select_related('detalle').filter()
+        #print("User: ", user.id)
         return queryset
 
 
@@ -47,7 +48,7 @@ class PersonajeCreateAPIView(generics.CreateAPIView):
 
 
 class PersonajeDetailAPIView(generics.CreateAPIView):
-
+ 
     serializer_class = PersonajeSerializer
 
     def get_queryset(self):
@@ -55,3 +56,5 @@ class PersonajeDetailAPIView(generics.CreateAPIView):
         queryset = Personaje.objects.select_related('detalle').filter(user=user.id)
         print("User: ", user.id)
         return queryset
+
+

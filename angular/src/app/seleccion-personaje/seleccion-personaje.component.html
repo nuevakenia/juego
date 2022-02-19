@@ -12,26 +12,25 @@
 
 </style>
 
-
-
 <script>
-
     console.log("TESTEO")
 </script>
 
 <body>
+    <app-barra></app-barra>
     <div class="bloque">
+        
         <h1 class="animate">Seleccionar personaje</h1>
     </div>
     <div class="body solid">
-
+        
         <br>
         <!-- Cards with media area -->
         <div *ngFor="let personaje of personajes">
             <mat-card class="personaje-card">
                 <mat-card-title-group>
                     <mat-card-title>{{ personaje.nombre }}</mat-card-title>
-                    <mat-card-subtitle>Extra large</mat-card-subtitle>
+                    <mat-card-subtitle>Level: {{personaje}}</mat-card-subtitle>
                     <img mat-card-xl-image src="/assets/img/pj3.jpg" layout-fill>
                 </mat-card-title-group>
                 <mat-card-content>
@@ -48,9 +47,8 @@
 
         </div>
     </div>
-
-
-
 </body>
+
+
 
 </html>

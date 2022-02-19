@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarraComponent implements OnInit {
 
+  showFiller = false;
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
