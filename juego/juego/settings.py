@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     "corsheaders",
+    "webpack_loader"
 
 ]
 
@@ -123,12 +124,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+STATIC_ROOT = 'var/static_root/'
+
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'juego/static'),
-)
-
+STATICFILES_DIRS = ['static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -149,3 +149,12 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8000",
     "http://127.0.0.1:4200",
 ]
+
+WEBPACK_LOADER = {
+  'DEFAULT': {
+    'CACHE': not DEBUG,
+    'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    'POLL_INTERVAL': 0.1,
+    'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
+  }
+}

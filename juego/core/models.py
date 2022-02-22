@@ -17,9 +17,6 @@ class PersonajeDetalle(models.Model):
     inteligencia = models.IntegerField(default=1)
 
 
-
-
-
 class ArbolDetalle(models.Model):
     suerte = models.IntegerField(default=1)
     agilidad = models.IntegerField(default=1)
