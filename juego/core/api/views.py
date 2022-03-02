@@ -15,6 +15,7 @@ from .serializers import UserSerializer, PersonajeSerializer
 
 
 class PersonajeViewSet(ListModelMixin, GenericViewSet):
+
     serializer_class = PersonajeSerializer
     queryset = Personaje.objects.all()
 
@@ -31,7 +32,6 @@ class SeleccionPersonajeViewSet(ListModelMixin, GenericViewSet):
 
 class PersonajeCreateAPIView(generics.CreateAPIView):
     serializer_class = PersonajeSerializer
-
     def get_queryset(self):
         user = self.request.user
         queryset = Personaje.objects.select_related('detalle').filter(user=user.id)

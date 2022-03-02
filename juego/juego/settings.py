@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-2!1-96242evqmakb^q)ro#&717!k-hrg#p2^j^5jq9%#@@zw(q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #local
     'core.apps.CoreConfig',
+    #THIRD PARTY
     'rest_framework',
     'rest_framework.authtoken',
-    "corsheaders",
-    "webpack_loader"
+    "corsheaders"
+    
 
 ]
 
@@ -121,14 +123,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-STATIC_ROOT = 'var/static_root/'
-
-STATIC_URL = 'static/'
-
-STATICFILES_DIRS = ['static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -150,11 +144,30 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:4200",
 ]
 
-WEBPACK_LOADER = {
+# Needed for 'debug' to be available inside templates.
+# https://docs.djangoproject.com/en/3.2/ref/templates/api/#django-template-context-processors-debug
+INTERNAL_IPS = ['127.0.0.1']
+
+# Vite App Dir: point it to the folder your vite app is in.
+VITE_APP_DIR = BASE_DIR / "frontend/src"
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+# You may change these, but it's important that the dist folder is includedself.
+# If it's not, collectstatic won't copy your bundle to production.
+
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [
+    VITE_APP_DIR / "dist",
+]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+""" WEBPACK_LOADER = {
   'DEFAULT': {
     'CACHE': not DEBUG,
-    'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    'STATS_FILE': str(BASE_DIR.joinpath('frontend', 'webpack-stats.json')),
     'POLL_INTERVAL': 0.1,
     'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
   }
-}
+} """

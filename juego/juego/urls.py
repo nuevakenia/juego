@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import include, path
 from django.urls.conf import re_path
 from django.views.generic import TemplateView
+from django.views.static import serve
+from django.conf import settings
 
 from core.views import FrontendRenderView
 
@@ -31,6 +33,11 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path("api/", include("juego.api_router")),
     #re_path(r'^api/', include("study.api_router")),
+    #re_path(r"^static/()?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
+    re_path(
+        r"^.*$",
+        TemplateView.as_view(template_name="base.html")),
+
 ]
 
 urlpatterns += [
