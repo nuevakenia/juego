@@ -3,12 +3,10 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import HelloWorld from './components/HelloWorld.vue'
 import Test1 from './components/test1.vue'
-
+import Navbar from './components/Navbar.vue'
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <Test1 msg="Hello Vue 3 + Vite" />
   <router-view />
 </template>
 
